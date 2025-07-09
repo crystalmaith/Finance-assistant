@@ -1,11 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { DashboardHeader } from "@/components/DashboardHeader";
+import { AccountSummary } from "@/components/AccountSummary";
+import { SpendingChart } from "@/components/SpendingChart";
+import { TransactionList } from "@/components/TransactionList";
+import { BudgetOverview } from "@/components/BudgetOverview";
+import { AIInsights } from "@/components/AIInsights";
+import { InvestmentPortfolio } from "@/components/InvestmentPortfolio";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-6 space-y-6">
+        <DashboardHeader />
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            <AccountSummary />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <SpendingChart />
+              <BudgetOverview />
+            </div>
+            <TransactionList />
+          </div>
+          
+          {/* Right Column - Sidebar */}
+          <div className="space-y-6">
+            <AIInsights />
+            <InvestmentPortfolio />
+          </div>
+        </div>
       </div>
     </div>
   );
