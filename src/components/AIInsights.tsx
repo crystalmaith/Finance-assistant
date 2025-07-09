@@ -12,8 +12,8 @@ export const AIInsights = () => {
       description: "You're spending 15% more on dining out than similar users. Consider meal planning to reduce costs.",
       priority: "high",
       icon: Target,
-      color: "text-green-600",
-      bgColor: "bg-green-50"
+      color: "text-amber-600",
+      bgColor: "bg-amber-50"
     },
     {
       type: "investment",
@@ -21,8 +21,8 @@ export const AIInsights = () => {
       description: "Based on your risk profile, consider increasing your S&P 500 allocation by 5%.",
       priority: "medium",
       icon: TrendingUp,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50"
+      color: "text-yellow-600",
+      bgColor: "bg-yellow-50"
     },
     {
       type: "alert",
@@ -39,29 +39,29 @@ export const AIInsights = () => {
       description: "Paying off your credit card balance early could improve your utilization ratio.",
       priority: "low",
       icon: Lightbulb,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50"
+      color: "text-amber-700",
+      bgColor: "bg-amber-50"
     }
   ];
 
   return (
-    <Card className="bg-white/80 backdrop-blur-lg border-white/20 shadow-xl">
+    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="flex items-center space-x-2 text-gray-900">
-          <Brain className="h-5 w-5 text-blue-600" />
+        <CardTitle className="flex items-center space-x-2 text-amber-900">
+          <Brain className="h-5 w-5 text-amber-600" />
           <span>AI Insights</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {insights.map((insight, index) => (
-          <div key={index} className={`p-4 rounded-xl ${insight.bgColor} border border-opacity-20`}>
+          <div key={index} className={`p-4 rounded-xl ${insight.bgColor} border border-amber-200/30`}>
             <div className="flex items-start space-x-3">
-              <div className={`p-2 rounded-lg bg-white shadow-sm ${insight.color}`}>
+              <div className={`p-2 rounded-lg bg-white/80 shadow-sm ${insight.color}`}>
                 <insight.icon className="h-4 w-4" />
               </div>
               <div className="flex-1 space-y-2">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-gray-900 text-sm">{insight.title}</h4>
+                  <h4 className="font-semibold text-amber-900 text-sm">{insight.title}</h4>
                   <Badge 
                     variant={insight.priority === 'high' ? 'destructive' : 
                            insight.priority === 'medium' ? 'default' : 'secondary'}
@@ -70,8 +70,8 @@ export const AIInsights = () => {
                     {insight.priority}
                   </Badge>
                 </div>
-                <p className="text-xs text-gray-700 leading-relaxed">{insight.description}</p>
-                <Button size="sm" variant="outline" className="text-xs h-8">
+                <p className="text-xs text-amber-800 leading-relaxed">{insight.description}</p>
+                <Button size="sm" variant="outline" className="text-xs h-8 border-amber-300 text-amber-700 hover:bg-amber-100">
                   Learn More
                 </Button>
               </div>

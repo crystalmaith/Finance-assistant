@@ -13,20 +13,20 @@ export const SpendingChart = () => {
   ];
 
   return (
-    <Card className="bg-white/80 backdrop-blur-lg border-white/20 shadow-xl">
+    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-gray-900">Monthly Spending</CardTitle>
+        <CardTitle className="text-amber-900">Monthly Spending</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="month" stroke="#64748b" />
-              <YAxis stroke="#64748b" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#f3e8d3" />
+              <XAxis dataKey="month" stroke="#92400e" />
+              <YAxis stroke="#92400e" />
               <Tooltip 
                 contentStyle={{ 
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  backgroundColor: 'rgba(254, 243, 222, 0.95)',
                   border: 'none',
                   borderRadius: '12px',
                   boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
@@ -39,8 +39,8 @@ export const SpendingChart = () => {
               />
               <defs>
                 <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#3b82f6" />
-                  <stop offset="100%" stopColor="#1d4ed8" />
+                  <stop offset="0%" stopColor="#f59e0b" />
+                  <stop offset="100%" stopColor="#d97706" />
                 </linearGradient>
               </defs>
             </BarChart>

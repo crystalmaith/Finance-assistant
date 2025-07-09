@@ -12,7 +12,7 @@ export const TransactionList = () => {
       category: "Food",
       date: "Today",
       icon: ShoppingCart,
-      color: "text-blue-600"
+      color: "text-amber-600"
     },
     {
       id: 2,
@@ -21,7 +21,7 @@ export const TransactionList = () => {
       category: "Transportation",
       date: "Yesterday",
       icon: Car,
-      color: "text-green-600"
+      color: "text-yellow-600"
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ export const TransactionList = () => {
       category: "Giving",
       date: "1 week ago",
       icon: Heart,
-      color: "text-purple-600"
+      color: "text-amber-700"
     }
   ];
 
@@ -60,28 +60,28 @@ export const TransactionList = () => {
   };
 
   return (
-    <Card className="bg-white/80 backdrop-blur-lg border-white/20 shadow-xl">
+    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-gray-900">Recent Transactions</CardTitle>
+        <CardTitle className="text-amber-900">Recent Transactions</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {transactions.map((transaction) => (
-            <div key={transaction.id} className="flex items-center justify-between p-4 bg-gray-50/50 rounded-xl hover:bg-gray-100/50 transition-colors">
+            <div key={transaction.id} className="flex items-center justify-between p-4 bg-amber-25/30 rounded-xl hover:bg-amber-100/40 transition-colors">
               <div className="flex items-center space-x-4">
-                <div className={`p-2 rounded-lg bg-gray-100 ${transaction.color}`}>
+                <div className={`p-2 rounded-lg bg-amber-100/70 ${transaction.color}`}>
                   <transaction.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">{transaction.description}</p>
-                  <p className="text-sm text-gray-600">{transaction.date}</p>
+                  <p className="font-medium text-amber-900">{transaction.description}</p>
+                  <p className="text-sm text-amber-700">{transaction.date}</p>
                 </div>
               </div>
               <div className="text-right">
-                <p className={`font-bold ${transaction.amount > 0 ? 'text-green-600' : 'text-gray-900'}`}>
+                <p className={`font-bold ${transaction.amount > 0 ? 'text-green-600' : 'text-amber-900'}`}>
                   {transaction.amount > 0 ? '+' : '-'}{formatCurrency(transaction.amount)}
                 </p>
-                <Badge variant="secondary" className="text-xs">
+                <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-800">
                   {transaction.category}
                 </Badge>
               </div>

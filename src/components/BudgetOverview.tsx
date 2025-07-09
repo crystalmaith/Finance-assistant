@@ -4,11 +4,11 @@ import { Progress } from "@/components/ui/progress";
 
 export const BudgetOverview = () => {
   const budgets = [
-    { category: "Food & Dining", spent: 680, budget: 800, color: "bg-blue-500" },
-    { category: "Transportation", spent: 320, budget: 400, color: "bg-green-500" },
-    { category: "Entertainment", spent: 240, budget: 300, color: "bg-purple-500" },
-    { category: "Shopping", spent: 450, budget: 500, color: "bg-orange-500" },
-    { category: "Bills & Utilities", spent: 1200, budget: 1200, color: "bg-red-500" },
+    { category: "Food & Dining", spent: 680, budget: 800, color: "bg-amber-500" },
+    { category: "Transportation", spent: 320, budget: 400, color: "bg-yellow-500" },
+    { category: "Entertainment", spent: 240, budget: 300, color: "bg-orange-500" },
+    { category: "Shopping", spent: 450, budget: 500, color: "bg-amber-600" },
+    { category: "Bills & Utilities", spent: 1200, budget: 1200, color: "bg-orange-600" },
   ];
 
   const formatCurrency = (amount: number) => {
@@ -19,16 +19,16 @@ export const BudgetOverview = () => {
   };
 
   return (
-    <Card className="bg-white/80 backdrop-blur-lg border-white/20 shadow-xl">
+    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-gray-900">Budget Overview</CardTitle>
+        <CardTitle className="text-amber-900">Budget Overview</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {budgets.map((item, index) => (
           <div key={index} className="space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-gray-700">{item.category}</span>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm font-medium text-amber-800">{item.category}</span>
+              <span className="text-sm text-amber-700">
                 {formatCurrency(item.spent)} / {formatCurrency(item.budget)}
               </span>
             </div>
