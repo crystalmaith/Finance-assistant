@@ -2,6 +2,15 @@
 import { Bell, Settings, User, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { AccountSection } from "./AccountSection";
 
 export const DashboardHeader = () => {
   return (
@@ -28,12 +37,31 @@ export const DashboardHeader = () => {
           <Button variant="ghost" size="icon" className="hover:bg-amber-100/70">
             <Settings className="h-5 w-5 text-amber-700" />
           </Button>
-          <Avatar className="h-10 w-10 ring-2 ring-amber-300">
-            <AvatarImage src="/placeholder.svg" />
-            <AvatarFallback className="bg-gradient-to-r from-amber-400 to-orange-400 text-white">
-              JD
-            </AvatarFallback>
-          </Avatar>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Avatar className="h-10 w-10 ring-2 ring-stone-300 cursor-pointer hover:ring-stone-400 transition-all">
+                <AvatarImage src="/placeholder.svg" />
+                <AvatarFallback className="bg-gradient-to-r from-stone-400 to-amber-400 text-white">
+                  JD
+                </AvatarFallback>
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-fit p-0 bg-white border-stone-200">
+              <DropdownMenuLabel className="px-4 py-2 text-stone-800">My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-stone-200" />
+              <div className="p-2">
+                <AccountSection />
+              </div>
+              <DropdownMenuSeparator className="bg-stone-200" />
+              <DropdownMenuItem className="text-stone-600 hover:bg-stone-50 cursor-pointer">
+                <User className="mr-2 h-4 w-4" />
+                Profile Settings
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-stone-600 hover:bg-stone-50 cursor-pointer">
+                Sign out
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>
