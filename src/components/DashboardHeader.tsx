@@ -1,5 +1,5 @@
 
-import { Bell, Settings, User, TrendingUp } from "lucide-react";
+import { Bell, Settings, User, TrendingUp, FileText, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -11,8 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AccountSection } from "./AccountSection";
+import { Link, useNavigate } from "react-router-dom";
 
 export const DashboardHeader = () => {
+  const navigate = useNavigate();
   return (
     <header className="bg-amber-50/90 backdrop-blur-lg rounded-2xl border border-amber-200/50 shadow-lg p-6">
       <div className="flex items-center justify-between">
@@ -53,11 +55,25 @@ export const DashboardHeader = () => {
                 <AccountSection />
               </div>
               <DropdownMenuSeparator className="bg-stone-200" />
-              <DropdownMenuItem className="text-stone-600 hover:bg-stone-50 cursor-pointer">
+              <DropdownMenuItem 
+                className="text-stone-600 hover:bg-stone-50 cursor-pointer"
+                onClick={() => navigate("/statements")}
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                View Statements
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                className="text-stone-600 hover:bg-stone-50 cursor-pointer"
+                onClick={() => navigate("/profile")}
+              >
                 <User className="mr-2 h-4 w-4" />
                 Profile Settings
               </DropdownMenuItem>
-              <DropdownMenuItem className="text-stone-600 hover:bg-stone-50 cursor-pointer">
+              <DropdownMenuItem 
+                className="text-stone-600 hover:bg-stone-50 cursor-pointer"
+                onClick={() => navigate("/auth")}
+              >
+                <LogOut className="mr-2 h-4 w-4" />
                 Sign out
               </DropdownMenuItem>
             </DropdownMenuContent>
