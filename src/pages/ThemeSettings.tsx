@@ -8,49 +8,73 @@ const themes = [
   {
     name: "Amber Gold",
     id: "amber",
-    primary: "hsl(45, 100%, 51%)",
-    secondary: "hsl(39, 100%, 57%)",
-    background: "hsl(45, 100%, 97%)",
+    vars: {
+      primary: "45 93% 47%",
+      secondary: "43 96% 56%", 
+      accent: "45 100% 95%",
+      background: "45 100% 99%",
+      card: "45 100% 98%"
+    },
     preview: "from-amber-400 to-orange-400"
   },
   {
-    name: "Ocean Blue",
+    name: "Ocean Blue", 
     id: "blue",
-    primary: "hsl(221, 83%, 53%)",
-    secondary: "hsl(213, 93%, 67%)",
-    background: "hsl(221, 100%, 97%)",
+    vars: {
+      primary: "221 83% 53%",
+      secondary: "213 93% 67%",
+      accent: "221 100% 95%", 
+      background: "221 100% 99%",
+      card: "221 100% 98%"
+    },
     preview: "from-blue-400 to-cyan-400"
   },
   {
     name: "Forest Green",
-    id: "green",
-    primary: "hsl(142, 76%, 36%)",
-    secondary: "hsl(160, 84%, 39%)",
-    background: "hsl(142, 100%, 97%)",
+    id: "green", 
+    vars: {
+      primary: "142 76% 36%",
+      secondary: "160 84% 39%",
+      accent: "142 100% 95%",
+      background: "142 100% 99%", 
+      card: "142 100% 98%"
+    },
     preview: "from-green-400 to-emerald-400"
   },
   {
     name: "Royal Purple",
     id: "purple",
-    primary: "hsl(263, 70%, 50%)",
-    secondary: "hsl(272, 81%, 67%)",
-    background: "hsl(263, 100%, 97%)",
+    vars: {
+      primary: "263 70% 50%", 
+      secondary: "272 81% 67%",
+      accent: "263 100% 95%",
+      background: "263 100% 99%",
+      card: "263 100% 98%"
+    },
     preview: "from-purple-400 to-indigo-400"
   },
   {
     name: "Rose Pink",
     id: "rose",
-    primary: "hsl(330, 81%, 60%)",
-    secondary: "hsl(346, 87%, 65%)",
-    background: "hsl(330, 100%, 97%)",
+    vars: {
+      primary: "330 81% 60%",
+      secondary: "346 87% 65%", 
+      accent: "330 100% 95%",
+      background: "330 100% 99%",
+      card: "330 100% 98%"
+    },
     preview: "from-rose-400 to-pink-400"
   },
   {
-    name: "Sunset Orange",
+    name: "Sunset Orange", 
     id: "orange",
-    primary: "hsl(25, 95%, 53%)",
-    secondary: "hsl(43, 96%, 56%)",
-    background: "hsl(25, 100%, 97%)",
+    vars: {
+      primary: "25 95% 53%",
+      secondary: "43 96% 56%",
+      accent: "25 100% 95%",
+      background: "25 100% 99%", 
+      card: "25 100% 98%"
+    },
     preview: "from-orange-400 to-yellow-400"
   }
 ];
@@ -61,9 +85,11 @@ export const ThemeSettings = () => {
 
   const applyTheme = (theme: typeof themes[0]) => {
     const root = document.documentElement;
-    root.style.setProperty('--primary', theme.primary.replace('hsl(', '').replace(')', ''));
-    root.style.setProperty('--secondary', theme.secondary.replace('hsl(', '').replace(')', ''));
-    root.style.setProperty('--background', theme.background.replace('hsl(', '').replace(')', ''));
+    root.style.setProperty('--primary', theme.vars.primary);
+    root.style.setProperty('--secondary', theme.vars.secondary);
+    root.style.setProperty('--background', theme.vars.background);
+    root.style.setProperty('--accent', theme.vars.accent);
+    root.style.setProperty('--card', theme.vars.card);
     setSelectedTheme(theme.id);
   };
 
@@ -110,14 +136,14 @@ export const ThemeSettings = () => {
                   <div className="flex items-center gap-2">
                     <div
                       className="w-4 h-4 rounded-full border"
-                      style={{ backgroundColor: theme.primary }}
+                      style={{ backgroundColor: `hsl(${theme.vars.primary})` }}
                     />
                     <span className="text-sm text-muted-foreground">Primary</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div
                       className="w-4 h-4 rounded-full border"
-                      style={{ backgroundColor: theme.secondary }}
+                      style={{ backgroundColor: `hsl(${theme.vars.secondary})` }}
                     />
                     <span className="text-sm text-muted-foreground">Secondary</span>
                   </div>
