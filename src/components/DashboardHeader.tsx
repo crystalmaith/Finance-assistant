@@ -1,5 +1,5 @@
 
-import { Bell, Settings, User, TrendingUp, FileText, LogOut } from "lucide-react";
+import { Bell, Settings, User, TrendingUp, FileText, LogOut, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -36,9 +36,22 @@ export const DashboardHeader = () => {
           <Button variant="ghost" size="icon" className="hover:bg-amber-100/70">
             <Bell className="h-5 w-5 text-amber-700" />
           </Button>
-          <Button variant="ghost" size="icon" className="hover:bg-amber-100/70">
-            <Settings className="h-5 w-5 text-amber-700" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="hover:bg-amber-100/70">
+                <Settings className="h-5 w-5 text-amber-700" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48 bg-white border-stone-200">
+              <DropdownMenuItem 
+                className="text-stone-600 hover:bg-stone-50 cursor-pointer"
+                onClick={() => navigate("/theme-settings")}
+              >
+                <Palette className="mr-2 h-4 w-4" />
+                Theme Settings
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="h-10 w-10 ring-2 ring-stone-300 cursor-pointer hover:ring-stone-400 transition-all">

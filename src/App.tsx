@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Statements from "./pages/Statements";
 import ProfileSettings from "./pages/ProfileSettings";
 import Auth from "./pages/Auth";
+import { ThemeSettings } from "./pages/ThemeSettings";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/statements" element={<Statements />} />
           <Route path="/profile" element={<ProfileSettings />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/theme-settings" element={<ThemeSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
