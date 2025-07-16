@@ -12,9 +12,40 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AccountSection } from "./AccountSection";
 import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const DashboardHeader = () => {
   const navigate = useNavigate();
+  const [profile, setProfile] = useState<{ full_name?: string; avatar_url?: string }>({});
+
+  useEffect(() => {
+    loadProfile();
+  }, []);
+
+  const loadProfile = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('full_name, avatar_url')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (error) {
+        console.error('Error loading profile:', error);
+        return;
+      }
+
+      if (data) {
+        setProfile(data);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
   return (
     <header className="bg-card/90 backdrop-blur-lg rounded-2xl border border-border shadow-lg p-6">
       <div className="flex items-center justify-between">
@@ -55,9 +86,9 @@ export const DashboardHeader = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Avatar className="h-10 w-10 ring-2 ring-border cursor-pointer hover:ring-primary transition-all">
-                <AvatarImage src="/placeholder.svg" />
+                <AvatarImage src={profile.avatar_url} />
                 <AvatarFallback className="bg-gradient-to-r from-primary to-secondary text-primary-foreground">
-                  JD
+                  {profile.full_name?.charAt(0) || 'U'}
                 </AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
