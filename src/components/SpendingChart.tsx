@@ -13,21 +13,21 @@ export const SpendingChart = () => {
   ];
 
   return (
-    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
+    <Card className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-amber-900">Monthly Spending</CardTitle>
+        <CardTitle className="text-foreground">Monthly Spending</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f3e8d3" />
-              <XAxis dataKey="month" stroke="#92400e" />
-              <YAxis stroke="#92400e" />
+              <CartesianGrid strokeDasharray="3 3" className="stroke-muted/30" />
+              <XAxis dataKey="month" className="stroke-muted-foreground" />
+              <YAxis className="stroke-muted-foreground" />
               <Tooltip 
                 contentStyle={{ 
-                  backgroundColor: 'rgba(254, 243, 222, 0.95)',
-                  border: 'none',
+                  backgroundColor: 'hsl(var(--card))',
+                  border: '1px solid hsl(var(--border))',
                   borderRadius: '12px',
                   boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                 }}
@@ -39,8 +39,8 @@ export const SpendingChart = () => {
               />
               <defs>
                 <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#f59e0b" />
-                  <stop offset="100%" stopColor="#d97706" />
+                  <stop offset="0%" stopColor="hsl(var(--primary))" />
+                  <stop offset="100%" stopColor="hsl(var(--primary) / 0.8)" />
                 </linearGradient>
               </defs>
             </BarChart>
