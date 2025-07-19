@@ -19,16 +19,16 @@ export const BudgetOverview = () => {
   };
 
   return (
-    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
+    <Card className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-amber-900">Budget Overview</CardTitle>
+        <CardTitle className="text-foreground">Budget Overview</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {budgets.map((item, index) => (
           <div key={index} className="space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-amber-800">{item.category}</span>
-              <span className="text-sm text-amber-700">
+              <span className="text-sm font-medium text-foreground">{item.category}</span>
+              <span className="text-sm text-muted-foreground">
                 {formatCurrency(item.spent)} / {formatCurrency(item.budget)}
               </span>
             </div>

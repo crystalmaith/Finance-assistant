@@ -45,23 +45,23 @@ export const AIInsights = () => {
   ];
 
   return (
-    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
+    <Card className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="flex items-center space-x-2 text-amber-900">
-          <Brain className="h-5 w-5 text-amber-600" />
+        <CardTitle className="flex items-center space-x-2 text-foreground">
+          <Brain className="h-5 w-5 text-primary" />
           <span>AI Insights</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {insights.map((insight, index) => (
-          <div key={index} className={`p-4 rounded-xl ${insight.bgColor} border border-amber-200/30`}>
+          <div key={index} className={`p-4 rounded-xl bg-secondary/30 border border-border/30`}>
             <div className="flex items-start space-x-3">
-              <div className={`p-2 rounded-lg bg-white/80 shadow-sm ${insight.color}`}>
+              <div className={`p-2 rounded-lg bg-background/80 shadow-sm text-primary`}>
                 <insight.icon className="h-4 w-4" />
               </div>
               <div className="flex-1 space-y-2">
                 <div className="flex items-center justify-between">
-                  <h4 className="font-semibold text-amber-900 text-sm">{insight.title}</h4>
+                  <h4 className="font-semibold text-foreground text-sm">{insight.title}</h4>
                   <Badge 
                     variant={insight.priority === 'high' ? 'destructive' : 
                            insight.priority === 'medium' ? 'default' : 'secondary'}
@@ -70,8 +70,8 @@ export const AIInsights = () => {
                     {insight.priority}
                   </Badge>
                 </div>
-                <p className="text-xs text-amber-800 leading-relaxed">{insight.description}</p>
-                <Button size="sm" variant="outline" className="text-xs h-8 border-amber-300 text-amber-700 hover:bg-amber-100">
+                <p className="text-xs text-muted-foreground leading-relaxed">{insight.description}</p>
+                <Button size="sm" variant="outline" className="text-xs h-8">
                   Learn More
                 </Button>
               </div>

@@ -44,9 +44,9 @@ export const AccountSummary = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {accounts.map((account, index) => (
-        <Card key={index} className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+        <Card key={index} className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-amber-700">
+            <CardTitle className="text-sm font-medium text-muted-foreground">
               {account.name}
             </CardTitle>
             <div className={`p-2 rounded-lg bg-gradient-to-r ${account.color}`}>
@@ -54,7 +54,7 @@ export const AccountSummary = () => {
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-amber-900">
+            <div className="text-2xl font-bold text-foreground">
               {account.balance < 0 ? '-' : ''}{formatCurrency(account.balance)}
             </div>
             <div className="flex items-center text-xs">

@@ -60,28 +60,28 @@ export const TransactionList = () => {
   };
 
   return (
-    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
+    <Card className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-amber-900">Recent Transactions</CardTitle>
+        <CardTitle className="text-foreground">Recent Transactions</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {transactions.map((transaction) => (
-            <div key={transaction.id} className="flex items-center justify-between p-4 bg-amber-25/30 rounded-xl hover:bg-amber-100/40 transition-colors">
+            <div key={transaction.id} className="flex items-center justify-between p-4 bg-secondary/30 rounded-xl hover:bg-secondary/40 transition-colors">
               <div className="flex items-center space-x-4">
-                <div className={`p-2 rounded-lg bg-amber-100/70 ${transaction.color}`}>
+                <div className={`p-2 rounded-lg bg-background/70 text-primary`}>
                   <transaction.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="font-medium text-amber-900">{transaction.description}</p>
-                  <p className="text-sm text-amber-700">{transaction.date}</p>
+                  <p className="font-medium text-foreground">{transaction.description}</p>
+                  <p className="text-sm text-muted-foreground">{transaction.date}</p>
                 </div>
               </div>
               <div className="text-right">
-                <p className={`font-bold ${transaction.amount > 0 ? 'text-green-600' : 'text-amber-900'}`}>
+                <p className={`font-bold ${transaction.amount > 0 ? 'text-green-600' : 'text-foreground'}`}>
                   {transaction.amount > 0 ? '+' : '-'}{formatCurrency(transaction.amount)}
                 </p>
-                <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-800">
+                <Badge variant="secondary" className="text-xs">
                   {transaction.category}
                 </Badge>
               </div>

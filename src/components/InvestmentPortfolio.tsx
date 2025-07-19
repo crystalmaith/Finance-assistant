@@ -51,12 +51,12 @@ export const InvestmentPortfolio = () => {
   };
 
   return (
-    <Card className="bg-amber-50/90 backdrop-blur-lg border-amber-200/50 shadow-lg">
+    <Card className="bg-card/90 backdrop-blur-lg border-border/50 shadow-lg">
       <CardHeader>
-        <CardTitle className="text-amber-900">Investment Portfolio</CardTitle>
+        <CardTitle className="text-foreground">Investment Portfolio</CardTitle>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-2xl font-bold text-amber-900">{formatCurrency(totalValue)}</p>
+            <p className="text-2xl font-bold text-foreground">{formatCurrency(totalValue)}</p>
             <div className="flex items-center space-x-1">
               {totalChange > 0 ? (
                 <TrendingUp className="h-4 w-4 text-green-500" />
@@ -75,11 +75,11 @@ export const InvestmentPortfolio = () => {
           <div key={index} className="space-y-2">
             <div className="flex justify-between items-center">
               <div>
-                <p className="font-medium text-amber-900 text-sm">{item.name}</p>
-                <p className="text-xs text-amber-700">{item.symbol}</p>
+                <p className="font-medium text-foreground text-sm">{item.name}</p>
+                <p className="text-xs text-muted-foreground">{item.symbol}</p>
               </div>
               <div className="text-right">
-                <p className="font-medium text-amber-900 text-sm">{formatCurrency(item.value)}</p>
+                <p className="font-medium text-foreground text-sm">{formatCurrency(item.value)}</p>
                 <div className="flex items-center space-x-1">
                   {item.change > 0 ? (
                     <TrendingUp className="h-3 w-3 text-green-500" />
@@ -93,7 +93,7 @@ export const InvestmentPortfolio = () => {
               </div>
             </div>
             <Progress value={item.allocation} className="h-2" />
-            <p className="text-xs text-amber-700 text-right">{item.allocation}% of portfolio</p>
+            <p className="text-xs text-muted-foreground text-right">{item.allocation}% of portfolio</p>
           </div>
         ))}
       </CardContent>
